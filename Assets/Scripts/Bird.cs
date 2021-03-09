@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bird : MonoBehaviour
 {
     Vector2 _startPos;
+    [SerializeField] float launchForce = 500;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class Bird : MonoBehaviour
         Vector2 currentpos = GetComponent<Rigidbody2D>().position;
         Vector2 direction =  _startPos- currentpos;
         direction.Normalize();
-        GetComponent<Rigidbody2D>().AddForce(direction*500);
+        GetComponent<Rigidbody2D>().AddForce(direction*launchForce);
         GetComponent<SpriteRenderer>().color = Color.white;
 
     }
